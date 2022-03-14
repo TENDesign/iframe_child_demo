@@ -9,6 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const rtStorage = localStorage.getItem('r_t');
     const expStorage = localStorage.getItem('exp');
     
+    const targetOrigin = 'https://pedantic-chandrasekhar-e7a1e4.netlify.app'
+    
     if (window.location.pathname.includes('get') && document.referrer !== 'https://pedantic-chandrasekhar-e7a1e4.netlify.app/') initGet();
     if (window.location.pathname.includes('store') && document.referrer !== 'https://pedantic-chandrasekhar-e7a1e4.netlify.app/') initStore();
     if (document.referrer === 'https://pedantic-chandrasekhar-e7a1e4.netlify.app/') 
@@ -22,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                 i_t: itStorage,
                                 r_t: rtStorage,
                                 exp: expStorage
-                            }, '*');
+                            }, targetOrigin);
                         }, 3000)
                     } else {
                         setTimeout(() => {
@@ -31,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                 i_t: null,
                                 r_t: null,
                                 exp: null
-                            }, '*');
+                            }, targetOrigin);
                         }, 3000)
                     }
                     return;
@@ -47,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         localStorage.getItem('exp', exp)
                     ])
                     setTimeout(() => {
-                        window.parent.postMessage({action: 'STORE_TOKENS_RESPONSE', i_t, r_t, exp}, '*');
+                        window.parent.postMessage({action: 'STORE_TOKENS_RESPONSE', i_t, r_t, exp}, targetOrigin);
                     }, 3000)
                     return;
                 }
