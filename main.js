@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const rtStorage = localStorage.getItem('r_t');
     const expStorage = localStorage.getItem('exp');
     
-    const targetOrigin = 'https://pedantic-chandrasekhar-e7a1e4.netlify.app'
+    const targetOrigin = '*'
     
     if (window.location.pathname.includes('get') && document.referrer !== 'https://pedantic-chandrasekhar-e7a1e4.netlify.app/') initGet();
     if (window.location.pathname.includes('store') && document.referrer !== 'https://pedantic-chandrasekhar-e7a1e4.netlify.app/') initStore();
