@@ -9,9 +9,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const rtStorage = localStorage.getItem('r_t');
     const expStorage = localStorage.getItem('exp');
     
-    if (window.location.pathname.includes('get') && document.referrer !== 'http://localhost:5500/') initGet();
-    if (window.location.pathname.includes('store') && document.referrer !== 'http://localhost:5500/') initStore();
-    if (document.referrer === 'http://localhost:5500/') 
+    if (window.location.pathname.includes('get') && document.referrer !== 'https://pedantic-chandrasekhar-e7a1e4.netlify.app/') initGet();
+    if (window.location.pathname.includes('store') && document.referrer !== 'https://pedantic-chandrasekhar-e7a1e4.netlify.app/') initStore();
+    if (document.referrer === 'https://pedantic-chandrasekhar-e7a1e4.netlify.app/') 
         window.addEventListener('message', (event) => {
             switch(event.data.action) {
                 case 'GET_TOKENS': {
