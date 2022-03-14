@@ -16,19 +16,23 @@ document.addEventListener('DOMContentLoaded', () => {
             switch(event.data.action) {
                 case 'GET_TOKENS': {
                     if (itStorage, rtStorage, expStorage) {
-                        window.parent.postMessage({
-                            action: 'GET_TOKENS_RESPONSE',
-                            i_t: itStorage,
-                            r_t: rtStorage,
-                            exp: expStorage
-                        }, '*');
+                        setTimeout(() => {
+                            window.parent.postMessage({
+                                action: 'GET_TOKENS_RESPONSE',
+                                i_t: itStorage,
+                                r_t: rtStorage,
+                                exp: expStorage
+                            }, '*');
+                        }, 3000)
                     } else {
-                        window.parent.postMessage({
-                            action: 'GET_TOKENS_RESPONSE',
-                            i_t: null,
-                            r_t: null,
-                            exp: null
-                        }, '*');
+                        setTimeout(() => {
+                            window.parent.postMessage({
+                                action: 'GET_TOKENS_RESPONSE',
+                                i_t: null,
+                                r_t: null,
+                                exp: null
+                            }, '*');
+                        }, 3000)
                     }
                     return;
                 }
@@ -42,7 +46,9 @@ document.addEventListener('DOMContentLoaded', () => {
                         localStorage.getItem('r_t', r_t),
                         localStorage.getItem('exp', exp)
                     ])
-                    window.parent.postMessage({action: 'STORE_TOKENS_RESPONSE', i_t, r_t, exp}, '*');
+                    setTimeout(() => {
+                        window.parent.postMessage({action: 'STORE_TOKENS_RESPONSE', i_t, r_t, exp}, '*');
+                    }, 3000)
                     return;
                 }
                     
