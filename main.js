@@ -37,7 +37,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     localStorage.setItem('i_t', i_t);
                     localStorage.setItem('r_t', r_t);
                     localStorage.setItem('exp', exp);
-                    console.log(i_t, r_t, exp);
+                    console.log([
+                        localStorage.getItem('i_t', i_t),
+                        localStorage.getItem('r_t', r_t),
+                        localStorage.getItem('exp', exp)
+                    ])
                     window.parent.postMessage({action: 'STORE_TOKENS_RESPONSE', i_t, r_t, exp}, '*');
                     return;
                 }
