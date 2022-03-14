@@ -3,8 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const targetOrigin = '*'
     
-    if (window.location.pathname.includes('get') && document.referrer !== 'https://pedantic-chandrasekhar-e7a1e4.netlify.app/') initGet();
-    if (window.location.pathname.includes('store') && document.referrer !== 'https://pedantic-chandrasekhar-e7a1e4.netlify.app/') initStore();
+    // if (window.location.pathname.includes('get') && document.referrer !== 'https://pedantic-chandrasekhar-e7a1e4.netlify.app/') initGet();
+    // if (window.location.pathname.includes('store') && document.referrer !== 'https://pedantic-chandrasekhar-e7a1e4.netlify.app/') initStore();
     if (document.referrer === 'https://pedantic-chandrasekhar-e7a1e4.netlify.app/') 
         window.addEventListener('message', (event) => {
             switch(event.data.action) {
@@ -47,31 +47,31 @@ document.addEventListener('DOMContentLoaded', () => {
         }, false);
     
     
-    function initGet() {
-        if (itStorage && rtStorage && expStorage) {
-            mainContent.querySelector('p').innerText = 'Tokens available';
-            mainContent.querySelector('p').innerText = `redirecting to ${returnUrl}`;
-            window.location.assign(`${returnUrl}?i_t=${itStorage}&r_t=${rtStorage}&exp=${expStorage}`);
-        } else {
-            mainContent.querySelector('p').innerText = `redirecting to ${returnUrl}`;
-            console.log(returnUrl);
-            window.location.assign(returnUrl);
-         }
-    }
+    // function initGet() {
+    //     if (itStorage && rtStorage && expStorage) {
+    //         mainContent.querySelector('p').innerText = 'Tokens available';
+    //         mainContent.querySelector('p').innerText = `redirecting to ${returnUrl}`;
+    //         window.location.assign(`${returnUrl}?i_t=${itStorage}&r_t=${rtStorage}&exp=${expStorage}`);
+    //     } else {
+    //         mainContent.querySelector('p').innerText = `redirecting to ${returnUrl}`;
+    //         console.log(returnUrl);
+    //         window.location.assign(returnUrl);
+    //      }
+    // }
     
-    function initStore() {
-        if (itParam && rtParam && expParam) {
-            localStorage.setItem('i_t', itParam);
-            localStorage.setItem('r_t', rtParam);
-            localStorage.setItem('exp', expParam);
-            mainContent.querySelector('p').innerText = `redirecting to ${returnUrl}`;
-            console.log(returnUrl);
-            window.location.assign(returnUrl);
-        } else {
-            mainContent.querySelector('p').innerText = `redirecting to ${returnUrl}`;
-            console.log(returnUrl);
-            window.location.assign(returnUrl);
-         }
-    }
+    // function initStore() {
+    //     if (itParam && rtParam && expParam) {
+    //         localStorage.setItem('i_t', itParam);
+    //         localStorage.setItem('r_t', rtParam);
+    //         localStorage.setItem('exp', expParam);
+    //         mainContent.querySelector('p').innerText = `redirecting to ${returnUrl}`;
+    //         console.log(returnUrl);
+    //         window.location.assign(returnUrl);
+    //     } else {
+    //         mainContent.querySelector('p').innerText = `redirecting to ${returnUrl}`;
+    //         console.log(returnUrl);
+    //         window.location.assign(returnUrl);
+    //      }
+    // }
 
 });
