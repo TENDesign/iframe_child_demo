@@ -1,13 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
     const mainContent = document.getElementById('mainContent');
-    const searchParams = new URLSearchParams(window.location.search);
-    const returnUrl = searchParams.get('returnUrl');
-    const itParam = searchParams.get('i_t');
-    const rtParam = searchParams.get('r_t');
-    const expParam = searchParams.get('exp');
-    const itStorage = localStorage.getItem('i_t');
-    const rtStorage = localStorage.getItem('r_t');
-    const expStorage = localStorage.getItem('exp');
     
     const targetOrigin = '*'
     
@@ -17,6 +9,9 @@ document.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('message', (event) => {
             switch(event.data.action) {
                 case 'GET_TOKENS': {
+                    const itStorage = localStorage.getItem('i_t');
+                    const rtStorage = localStorage.getItem('r_t');
+                    const expStorage = localStorage.getItem('exp');
                     if (itStorage, rtStorage, expStorage) {
                         setTimeout(() => {
                             window.parent.postMessage({
