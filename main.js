@@ -13,23 +13,19 @@ document.addEventListener('DOMContentLoaded', () => {
                     const rtStorage = localStorage.getItem('r_t');
                     const expStorage = localStorage.getItem('exp');
                     if (itStorage, rtStorage, expStorage) {
-                        setTimeout(() => {
-                            window.parent.postMessage({
-                                action: 'GET_TOKENS_RESPONSE',
-                                i_t: itStorage,
-                                r_t: rtStorage,
-                                exp: expStorage
-                            }, targetOrigin);
-                        }, 3000)
+                        window.parent.postMessage({
+                            action: 'GET_TOKENS_RESPONSE',
+                            i_t: itStorage,
+                            r_t: rtStorage,
+                            exp: expStorage
+                        }, targetOrigin);
                     } else {
-                        setTimeout(() => {
-                            window.parent.postMessage({
-                                action: 'GET_TOKENS_RESPONSE',
-                                i_t: null,
-                                r_t: null,
-                                exp: null
-                            }, targetOrigin);
-                        }, 3000)
+                        window.parent.postMessage({
+                            action: 'GET_TOKENS_RESPONSE',
+                            i_t: null,
+                            r_t: null,
+                            exp: null
+                        }, targetOrigin);
                     }
                     return;
                 }
@@ -43,9 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         localStorage.getItem('r_t', r_t),
                         localStorage.getItem('exp', exp)
                     ])
-                    setTimeout(() => {
-                        window.parent.postMessage({action: 'STORE_TOKENS_RESPONSE', i_t, r_t, exp}, targetOrigin);
-                    }, 3000)
+                    window.parent.postMessage({action: 'STORE_TOKENS_RESPONSE', i_t, r_t, exp}, targetOrigin);
                     return;
                 }
                     
@@ -56,16 +50,12 @@ document.addEventListener('DOMContentLoaded', () => {
     function initGet() {
         if (itStorage && rtStorage && expStorage) {
             mainContent.querySelector('p').innerText = 'Tokens available';
-            setTimeout(() => {
-                mainContent.querySelector('p').innerText = `redirecting to ${returnUrl}`;
-                window.location.assign(`${returnUrl}?i_t=${itStorage}&r_t=${rtStorage}&exp=${expStorage}`);
-            }, 3000);
+            mainContent.querySelector('p').innerText = `redirecting to ${returnUrl}`;
+            window.location.assign(`${returnUrl}?i_t=${itStorage}&r_t=${rtStorage}&exp=${expStorage}`);
         } else {
-            setTimeout(() => {
-                mainContent.querySelector('p').innerText = `redirecting to ${returnUrl}`;
-                console.log(returnUrl);
-                window.location.assign(returnUrl);
-            }, 3000);
+            mainContent.querySelector('p').innerText = `redirecting to ${returnUrl}`;
+            console.log(returnUrl);
+            window.location.assign(returnUrl);
          }
     }
     
@@ -74,17 +64,13 @@ document.addEventListener('DOMContentLoaded', () => {
             localStorage.setItem('i_t', itParam);
             localStorage.setItem('r_t', rtParam);
             localStorage.setItem('exp', expParam);
-            setTimeout(() => {
-                mainContent.querySelector('p').innerText = `redirecting to ${returnUrl}`;
-                console.log(returnUrl);
-                window.location.assign(returnUrl);
-            }, 3000);
+            mainContent.querySelector('p').innerText = `redirecting to ${returnUrl}`;
+            console.log(returnUrl);
+            window.location.assign(returnUrl);
         } else {
-            setTimeout(() => {
-                mainContent.querySelector('p').innerText = `redirecting to ${returnUrl}`;
-                console.log(returnUrl);
-                window.location.assign(returnUrl);
-            }, 3000);
+            mainContent.querySelector('p').innerText = `redirecting to ${returnUrl}`;
+            console.log(returnUrl);
+            window.location.assign(returnUrl);
          }
     }
 
