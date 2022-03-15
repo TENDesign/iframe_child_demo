@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const targetOrigin = '*'
 
-    if (document.referrer === 'https://pedantic-chandrasekhar-e7a1e4.netlify.app/') 
+    if (document.referrer === 'https://gallant-yalow-dc416b.netlify.app/') 
         window.addEventListener('message', (event) => {
             console.log(event);
             switch(event.data.action) {
