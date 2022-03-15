@@ -1,8 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const targetOrigin = 'https://pedantic-chandrasekhar-e7a1e4.netlify.app'
+    const allowedOrigins = ['https://pedantic-chandrasekhar-e7a1e4.netlify.app']
 
     window.addEventListener('message', (event) => {
-        if (event.origin !== targetOrigin) return;
+        const targetOrigin = allowedOrigins.find(item => item === event.origin);
+        if (!targetOrigin) return;
         switch(event.data.action) {
             case 'GET_TOKENS': {
                 const itStorage = localStorage.getItem('i_t');
@@ -16,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             r_t: rtStorage,
                             exp: expStorage
                         }
-                    }, targetOrigin);
+                    }, allowedOrigins);
                 } else {
                     window.parent.postMessage({
                         action: 'GET_TOKENS_RESPONSE',
@@ -25,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             r_t: null,
                             exp: null
                         }
-                    }, targetOrigin);
+                    }, allowedOrigins);
                 }
                 return;
             }
@@ -42,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 window.parent.postMessage({
                     action: 'STORE_TOKENS_RESPONSE', 
                     payload: {i_t, r_t, exp}
-                }, targetOrigin);
+                }, allowedOrigins);
                 return;
             }
                 
