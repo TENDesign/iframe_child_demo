@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const targetOrigin = '*'
+    const targetOrigin = 'https://pedantic-chandrasekhar-e7a1e4.netlify.app'
 
     if (document.referrer === 'https://pedantic-chandrasekhar-e7a1e4.netlify.app/') 
         window.addEventListener('message', (event) => {
