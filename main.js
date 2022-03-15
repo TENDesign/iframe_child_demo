@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const targetOrigin = 'https://pedantic-chandrasekhar-e7a1e4.netlify.app'
 
     window.addEventListener('message', (event) => {
-        if (event.origin !== tar) return;
+        if (event.origin !== targetOrigin) return;
         switch(event.data.action) {
             case 'GET_TOKENS': {
                 const itStorage = localStorage.getItem('i_t');
