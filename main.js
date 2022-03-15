@@ -39,7 +39,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     localStorage.getItem('r_t', r_t),
                     localStorage.getItem('exp', exp)
                 ])
-                window.parent.postMessage({action: 'STORE_TOKENS_RESPONSE', i_t, r_t, exp}, targetOrigin);
+                window.parent.postMessage({
+                    action: 'STORE_TOKENS_RESPONSE', 
+                    payload: {i_t, r_t, exp}
+                }, targetOrigin);
                 return;
             }
                 
