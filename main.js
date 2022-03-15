@@ -1,6 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const mainContent = document.getElementById('mainContent');
-    
     const targetOrigin = '*'
 
     if (document.referrer === 'https://pedantic-chandrasekhar-e7a1e4.netlify.app/') 
