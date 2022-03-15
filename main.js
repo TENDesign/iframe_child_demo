@@ -11,22 +11,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (itStorage, rtStorage, expStorage) {
                     window.parent.postMessage({
                         action: 'GET_TOKENS_RESPONSE',
-                        i_t: itStorage,
-                        r_t: rtStorage,
-                        exp: expStorage
+                        payload: {
+                            i_t: itStorage,
+                            r_t: rtStorage,
+                            exp: expStorage
+                        }
                     }, targetOrigin);
                 } else {
                     window.parent.postMessage({
                         action: 'GET_TOKENS_RESPONSE',
-                        i_t: null,
-                        r_t: null,
-                        exp: null
+                        payload: {
+                            i_t: null,
+                            r_t: null,
+                            exp: null
+                        }
                     }, targetOrigin);
                 }
                 return;
             }
             case 'STORE_TOKENS': {
-                const {i_t, r_t, exp, ...data} = event.data;
+                const {i_t, r_t, exp, ...data} = event.data.payload;
                 localStorage.setItem('i_t', i_t);
                 localStorage.setItem('r_t', r_t);
                 localStorage.setItem('exp', exp);
