@@ -1,9 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const allowedOrigins = ['https://pedantic-chandrasekhar-e7a1e4.netlify.app']
+    const allowedOrigins = ['https://pedantic-chandrasekhar-e7a1e4.netlify.app'];
 
     window.addEventListener('message', (event) => {
-        const targetOrigin = allowedOrigins.find(item => item === event.origin);
-        if (!targetOrigin) return;
+        if (event.origin !== allowedOrigins) return;
         switch(event.data.action) {
             case 'GET_TOKENS': {
                 const itStorage = localStorage.getItem('i_t');
