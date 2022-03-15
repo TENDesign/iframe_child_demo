@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (document.referrer === 'https://pedantic-chandrasekhar-e7a1e4.netlify.app/') 
         window.addEventListener('message', (event) => {
+            console.log(event);
             switch(event.data.action) {
                 case 'GET_TOKENS': {
                     const itStorage = localStorage.getItem('i_t');
